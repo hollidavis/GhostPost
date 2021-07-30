@@ -10876,4 +10876,20 @@ main {
   box-shadow: 1px 1px 15px black;
 }
 
+.show {
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.hide {
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.transition {
+  transition: all 0.5s ease-in-out;
+}
+
 /*# sourceMappingURL=main.css.map */
