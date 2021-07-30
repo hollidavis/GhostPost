@@ -20,7 +20,8 @@
   --gray: #4F4F4F;
   --gray-dark: darkslategray;
   --light: #EBEBEB;
-  --medium: #D6D6D6;
+  --medium: #3d3d3d;
+  --light-gray: #d6d6d6;
   --primary: #00A779;
   --secondary: #AFE0A4;
   --success: #27AE60;
@@ -9966,8 +9967,13 @@ h3 {
 }
 
 .bg-medium {
+  color: white;
+  background-color: #3d3d3d;
+}
+
+.bg-light-gray {
   color: #212529;
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
 }
 
 .bg-blue.darken-0 {
@@ -10321,26 +10327,51 @@ h3 {
 }
 
 .bg-medium.darken-0 {
-  color: #212529;
-  background-color: #d6d6d6;
+  color: white;
+  background-color: #3d3d3d;
 }
 
 .bg-medium.darken-10 {
-  color: #212529;
-  background-color: #bdbdbd;
+  color: white;
+  background-color: #242424;
 }
 
 .bg-medium.darken-20 {
-  color: #212529;
-  background-color: #a3a3a3;
+  color: white;
+  background-color: #0a0a0a;
 }
 
 .bg-medium.darken-30 {
   color: white;
-  background-color: #8a8a8a;
+  background-color: black;
 }
 
 .bg-medium.darken-40 {
+  color: white;
+  background-color: black;
+}
+
+.bg-light-gray.darken-0 {
+  color: #212529;
+  background-color: #d6d6d6;
+}
+
+.bg-light-gray.darken-10 {
+  color: #212529;
+  background-color: #bdbdbd;
+}
+
+.bg-light-gray.darken-20 {
+  color: #212529;
+  background-color: #a3a3a3;
+}
+
+.bg-light-gray.darken-30 {
+  color: white;
+  background-color: #8a8a8a;
+}
+
+.bg-light-gray.darken-40 {
   color: white;
   background-color: #707070;
 }
@@ -10696,26 +10727,51 @@ h3 {
 }
 
 .bg-medium.lighten-0 {
+  color: white;
+  background-color: #3d3d3d;
+}
+
+.bg-medium.lighten-10 {
+  color: white;
+  background-color: #575757;
+}
+
+.bg-medium.lighten-20 {
+  color: white;
+  background-color: #707070;
+}
+
+.bg-medium.lighten-30 {
+  color: white;
+  background-color: #8a8a8a;
+}
+
+.bg-medium.lighten-40 {
+  color: #212529;
+  background-color: #a3a3a3;
+}
+
+.bg-light-gray.lighten-0 {
   color: #212529;
   background-color: #d6d6d6;
 }
 
-.bg-medium.lighten-10 {
+.bg-light-gray.lighten-10 {
   color: #212529;
   background-color: #f0f0f0;
 }
 
-.bg-medium.lighten-20 {
+.bg-light-gray.lighten-20 {
   color: #212529;
   background-color: white;
 }
 
-.bg-medium.lighten-30 {
+.bg-light-gray.lighten-30 {
   color: #212529;
   background-color: white;
 }
 
-.bg-medium.lighten-40 {
+.bg-light-gray.lighten-40 {
   color: #212529;
   background-color: white;
 }
@@ -10805,6 +10861,10 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+.line-right {
+  border-right: 1px solid #2B2B2B;
 }
 
 /*# sourceMappingURL=main.css.map */

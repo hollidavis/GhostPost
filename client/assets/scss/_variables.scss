@@ -22,7 +22,8 @@ $white: white;
 $gray: #4F4F4F;
 $gray-dark: darkslategray;
 $light: #EBEBEB;
-$medium:  #D6D6D6;
+$medium:  #3d3d3d;
+$light-gray: #d6d6d6;
 
 $colors: (
   "blue": $blue,
@@ -40,6 +41,7 @@ $colors: (
   "gray-dark": $gray-dark,
   "light": $light,
   "medium": $medium,
+  "light-gray": $light-gray,
 );
 
 $color-ranges: (
