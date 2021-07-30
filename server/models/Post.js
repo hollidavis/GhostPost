@@ -8,6 +8,8 @@ export const Post = new Schema({
   location: { type: String, required: true },
   rating: { type: Number, required: true },
   img: { type: String, required: true },
+  upVote: { type: Number, required: true },
+  downVote: { type: Number, required: true },
   edited: { type: Boolean, default: false },
   creatorId: { type: ObjectId, ref: 'Account', required: true }
 
