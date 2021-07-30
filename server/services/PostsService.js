@@ -29,6 +29,11 @@ class PostsService {
     const post = await dbContext.Posts.findByIdAndUpdate(body.id, body, { new: true, runValidators: true })
     return post
   }
+
+  async destroy(body) {
+    await this.getOne(body.id, body.creatorId)
+    return await dbContext.Posts.findByIdAndDelete(body.id)
+  }
 }
 
 export const postsService = new PostsService()
