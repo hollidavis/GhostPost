@@ -25,7 +25,7 @@ class PostsService {
   }
 
   async edit(body) {
-    await this.getById(body.id)
+    await this.getOne(body.id, body.creatorId)
     const post = await dbContext.Posts.findByIdAndUpdate(body.id, body, { new: true, runValidators: true })
     return post
   }

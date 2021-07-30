@@ -11,6 +11,7 @@ export class PostsController extends BaseController {
       .get('/:id', this.getOne)
       .post('', this.create)
       .put('/:id', this.edit)
+      .delete('/:id', this.destroy)
   }
 
   async getAll(req, res, next) {
@@ -48,6 +49,15 @@ export class PostsController extends BaseController {
       req.body.creatorId = req.userInfo.id
       const post = await postsService.edit(req.body)
       res.send(post)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async destroy(req, res, next) {
+    try {
+      await postsService.destroy(req.body)
+      res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)
     }
