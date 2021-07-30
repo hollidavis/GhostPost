@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/style/main.css">
     <title>GhostPost</title>
 </head>
@@ -34,58 +37,104 @@
     }
 </style>
 
-<body class="debug">
+<body>
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
             <a class="navbar-brand" href="#">
-                <div class="row">
+                <div class="row glow">
                     <div class="col-12 d-flex align-items-center">
-                        <span class="mdi mdi-ghost mdi-48px"></span>
-                        <div class="ml-2">
-                            <h3 class=" m-0">GhostPost</h4>
-                                <p class="m-0">A Haunting Site for Haunted Sites</p>
+                        <!-- <span class="text-primary mdi mdi-ghost mdi-48px"></span> -->
+                        <span class="text-primary fa fa-ghost fa-3x"></span>
+                        <div class="ml-3">
+                            <h2 class=" m-0">GhostPost</h2>
+                            <h6 class="m-0"><em>A Haunting Site for Haunted Sites</em></h6>
                         </div>
                     </div>
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+            <div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                    </div>
                 </div>
             </div>
             <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
         </nav>
     </header>
     <main class="container-fluid bg-medium text-dark">
-        <!-- NOTE insert template here -->
-        <div class="row my-3 bg-light">
+        <div class="row justify-content-end m-2">
+            <button type="button" class="btn btn-info" onclick=" ">
+                <h5 class="m-0">
+                    <span class="mdi mdi-lead-pencil mdi-32px "> New
+                        Post</span>
+                </h5>
+            </button>
+        </div>
+        <div class="row my-3 mx-2 bg-light shadow-card">
             <div class="col-12">
-                <div class="row p-2 skeleton-loader">
-                    <div class="col-1 d-flex flex-column align-items-center justify-content-center line-right">
-                        <span class="mdi mdi-arrow-up-bold mdi-36px" id="upVote"></span>
+                <div class="row pb-2">
+                    <!-- NOTE id on vote-count doesn't do anything, it's jus for us to refer back to -->
+                    <div id="vote-count"
+                        class="col-1 d-flex flex-column align-items-center justify-content-center line-right">
+                        <span class="mdi mdi-arrow-up-bold mdi-36px text-primary" id="upVote"></span>
                         <span id="upVoteCount">0</span>
                         <span id="downVoteCount">0</span>
-                        <span class="mdi mdi-arrow-down-bold mdi-36px" id="downVote"></span>
+                        <span class="mdi mdi-arrow-down-bold mdi-36px text-danger" id="downVote"></span>
                     </div>
-                    <div class="col-11 ">
-                        <div class="row">
-                            <h5>Title</h5>
+                    <div class="col-11">
+                        <div class="row justify-content-between bg-light-gray px-2 mb-2">
+                            <h2>Title</h2>
+                            <h4 id="delete-button" class="text-danger justify-text-end"><b>X</b></h4>
                         </div>
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-4 mx-0">
                                 <img src="//placehold.it//200x200" alt="">
-                                <p>Posted By: <span></span></p>
-                                <button type="button" class="btn btn-primary"><span
-                                        class="mdi mdi-lead-pencil"></span></button>
                             </div>
                             <div class="col-8">
-                                <p class="d-flex align-items-center"><span
-                                        class="mdi mdi-map-marker mdi-24px"></span>Location</p>
-                                <div id="rating">
-                                    <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="d-flex align-items-center mdi mdi-map-marker mdi-24px mb-0">Location
+                                        </p>
+                                        <div id="rating">
+                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+                                                    voluptatibus suscipit est dignissimos! Aspernatur, rerum voluptas
+                                                    omnis
+                                                    dignissimos quo totam. Lorem ipsum dolor sit, amet consectetur
+                                                    adipisicing
+                                                    elit. Odit cum a eveniet qui. Facilis explicabo vel, dolor enim
+                                                    laborum
+                                                    harum!</p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col">
+                                <p>Posted By:</p>
+                                <button type="button" class="btn btn-primary">
+                                    <span class="mdi mdi-lead-pencil mdi-10px" title="Edit Post"> Edit Post</span>
+                                </button>
+                            </div>
+                            <div class="col-2 mt-4 mb-0 pt-2">
+                                <a href="#comments" data-toggle="collapse" title="See all comments">
+                                    <span class="mdi mdi-comment"> See Comments</span></a>
+                                <div class="collapse" id="comments">
+                                    <!-- NOTE add in comments here  -->
+                                    TEST
                                 </div>
                             </div>
                         </div>
@@ -98,7 +147,7 @@
     <footer class="container-fluid bg-dark text-light">
         <div class="row text-center">
             <div class="col">
-                <p><small>By Ghouls for Ghouls</small></p>
+                <p><small>👻By Ghouls for Ghouls👻</small></p>
             </div>
         </div>
     </footer>
