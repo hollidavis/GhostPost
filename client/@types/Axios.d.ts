@@ -1,10 +1,10 @@
 class Axios {
   defaults: AxiosRequestOptions
   create(options: AxiosConfig): Axios { }
-  get(url: string, options?: AxiosRequestOptions): Promise<AxiosResponse>
-  post(url: string, payload: any, options?: AxiosRequestOptions): Promise<AxiosResponse>
-  put(url: string, payload: any, options?: AxiosRequestOptions): Promise<AxiosResponse>
-  delete(url: string, options?: AxiosRequestOptions): Promise<AxiosResponse>
+  get(url: string, options?: AxiosRequestOptions): Promise<AxiosResponse | AxiosError>
+  post(url: string, payload: any, options?: AxiosRequestOptions): Promise<AxiosResponse | AxiosError>
+  put(url: string, payload: any, options?: AxiosRequestOptions): Promise<AxiosResponse | AxiosError>
+  delete(url: string, options?: AxiosRequestOptions): Promise<AxiosResponse | AxiosError>
 }
 
 declare const axios = new Axios
@@ -16,17 +16,21 @@ interface AxiosConfig extends AxiosRequestOptions {
 }
 
 interface AxiosRequestOptions {
-  headers?: any
-  params?: any
-  query?: any
+  headers?: Expando
+  params?: Expando
+  query?: Expando
 }
 
 interface AxiosResponse {
-  data: any
+  data: Expando
 }
 
 interface AxiosError {
   status: number
   message: string
   response: AxiosResponse
+}
+
+interface Expando {
+  [key: string]: any
 }

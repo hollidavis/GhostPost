@@ -1,6 +1,6 @@
 class EventEmitter {
   constructor() {
-    this._listeners = {}
+    this._listeners = {};
   }
 
   on(event: string | number, fn: function, thisContext: any = null): void { }
@@ -10,20 +10,23 @@ class EventEmitter {
   emit(event: string, payload: any): void { }
 }
 
+/**
+ @type {AuthPlugin}
+ */
+let instance: AuthPlugin;
+
 class AuthPlugin extends EventEmitter {
   AUTH_EVENTS = {
-    LOADING: 'LOADING',
-    LOADED: 'LOADED',
-    AUTHENTICATED: 'AUTHENTICATED'
+    LOADING: "LOADING",
+    LOADED: "LOADED",
+    AUTHENTICATED: "AUTHENTICATED"
   }
-
-  // eslint-disable-next-line no-use-before-define
   options: AuthServiceMethodOptions
   loading: boolean
   isAuthenticated: boolean
-  user: Object
-  userInfo: Object
-  identity: Object
+  user: object
+  userInfo: object
+  identity: object
   bearer: string
 
   /** Authenticates the user using a popup window */
@@ -52,13 +55,12 @@ class AuthPlugin extends EventEmitter {
   logout(o?: AuthServiceMethodOptions): void { }
 }
 
-// eslint-disable-next-line no-unused-vars
 const Auth0Provider = {
   /**
- * @param {{ onRedirectCallback: () => void; domain: string, audience: string, clientId: string, useRefreshTokens?: boolean   }} options
+ * @param {{ onRedirectCallback: () => void; domain: string, audience: string, clientId: string  }} options
  */
   initialize(options: { onRedirectCallback: () => void; domain: string; audience: string; clientId: string; }): AuthPlugin { return new AuthPlugin(options) },
-  async authGuard(to: RouterItem, from: RouterItem, next: () => Promise<void>): Promise<void> { }
+  async authGuard(to: RouterItem, from: RouterItem, next: () => Promise<void>): Promise<void> { },
 }
 
 interface RouterItem {
@@ -78,3 +80,6 @@ interface AuthServiceMethodOptions {
   connection?: string,
   [key: string]: any
 }
+
+
+
