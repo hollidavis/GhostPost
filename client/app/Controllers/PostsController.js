@@ -3,13 +3,17 @@ import { postsService } from '../Services/PostsService.js'
 import { logger } from '../Utils/logger.js'
 
 function _draw() {
-  const posts = ProxyState.posts
+  let template = ''
+  ProxyState.posts.forEach(p => {
+    template += p.Template
+  })
+  document.getElementById('posts').innerHTML = template
 }
 
 export class PostsController {
   constructor() {
-    // ProxyState.on('posts', _draw)
-    // ProxyState.on('account', this.getAll)
+    ProxyState.on('posts', _draw)
+    ProxyState.on('account', this.getAll)
   }
 
   async getAll() {
@@ -59,9 +63,9 @@ export class PostsController {
     }
   }
 
-  async editPost(postId, body) {
+  async editPost(event, id) {
     try {
-      await postsService.editPost
+      await postsService.editPost(event, id)
     } catch (error) {
       logger.error('invalid id')
     }
