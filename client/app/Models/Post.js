@@ -6,15 +6,15 @@ export class Post {
     this.location = data.location
     this.rating = data.rating
     this.img = data.img
-    this.upVote = data.upVote || 0
-    this.downVote = data.downVote || 0
-    this.edited = data.edited || false
+    this.upVote = '0' || data.upVote
+    this.downVote = '0' || data.downVote
+    this.edited = false || data.edited
     this.creatorId = data.creatorId
   }
 
   get Template() {
     return /* HTML */`
-     <div class="row my-3 mx-2 bg-light shadow-card">
+    <div class="row my-3 mx-2 bg-light shadow-card">
             <div class="col-12">
                 <div class="row pb-2">
                     <div id="vote-count"
@@ -27,11 +27,11 @@ export class Post {
                     <div class="col-11">
                         <div class="row justify-content-between align-items-center bg-light-gray px-2 mb-2">
                             <h2 class="my-1">${this.title}</h2>
-                            <h4 id="delete-button" class="text-danger justify-text-end my-1"><b>X</b></h4>
+                            <h4 id="delete-button" class="text-danger justify-text-end my-1" onclick="app.postsController.deletePost(${this.id})"><b>X</b></h4>
                         </div>
                         <div class="row">
                             <div class="col-4 mx-0">
-                                <img src="${this.img}" alt="${this.location}">
+                                <img class = "post-img mb-2" src="${this.img}" alt="${this.location}">
                             </div>
                             <div class="col-8">
                                 <div class="row">
@@ -48,11 +48,9 @@ export class Post {
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-12 d-flex align-items-start">
-                                <p>Posted By: ${this.creatorId.name}</p>
-                            </div>
                             <div class="col-12 d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#v">
                                     <span class="mdi mdi-lead-pencil mdi-10px" title="Edit Post"> Edit Post</span>
                                 </button>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -70,7 +68,7 @@ export class Post {
 
   get getRatings() {
     let template = ''
-    for (let i = 0; i <= this.rating; i++) {
+    for (let i = 0; i <= this.rating - 1; i++) {
       template += '<span class="mdi mdi-ghost mdi-36px text-primary"></span>'
     }
     return template

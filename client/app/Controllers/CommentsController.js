@@ -10,12 +10,4 @@ export class CommentsController {
   constructor() {
     ProxyState.on('comments', _draw)
   }
-
-  expand() {
-    try {
-      commentsService.expand()
-    } catch (error) {
-      logger.log(error)
-    }
-  }
 }

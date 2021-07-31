@@ -10,7 +10,7 @@ class PostsService {
   }
 
   async createPost(rawPost) {
-    const res = await api.post('', rawPost)
+    const res = await api.post('api/posts', rawPost)
     ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
   }
 
