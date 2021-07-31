@@ -14,7 +14,6 @@ export class PostsController {
   constructor() {
     ProxyState.on('posts', _draw)
     ProxyState.on('profile', this.getAll)
-    this.getAll()
   }
 
   async getAll() {
