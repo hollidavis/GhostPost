@@ -10868,7 +10868,7 @@ main {
 }
 
 .glow:hover {
-  text-shadow: 1px 1px 2px black, 0 0 25px #d6d6d6, 0 0 5px #EBEBEB;
+  text-shadow: 1px 1px 2px black, 0 0 25px #AFE0A4, 0 0 5px #AFE0A4;
   cursor: pointer;
 }
 
