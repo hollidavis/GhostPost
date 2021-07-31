@@ -4,10 +4,11 @@ import { PostsController } from './Controllers/PostsController.js'
 import { CommentsController } from './Controllers/CommentsController.js'
 
 class App {
-  authController = new AuthController();
+  // authController = new AuthController();
   // valuesController = new ValuesController();
-  postsController = new PostsController();
-  commentsController = new CommentsController();
+  // postsController = new PostsController();
+  // commentsController = new CommentsController();
 }
-
-window.app = new App()
+console.log('trying to create the app')
+// eslint-disable-next-line dot-notation
+window['app'] = new App()
