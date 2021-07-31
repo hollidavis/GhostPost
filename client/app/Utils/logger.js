@@ -1,4 +1,4 @@
-import { dev } from '../env.js'
+import { dev } from '../AuthConfig.js'
 
 function log(type, content) {
   if (dev) {
