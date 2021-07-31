@@ -1,4 +1,4 @@
-import { dev } from './env.js'
+import { dev } from './AuthConfig.js'
 import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
 
