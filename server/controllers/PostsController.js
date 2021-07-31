@@ -67,7 +67,7 @@ export class PostsController extends BaseController {
 
   async destroy(req, res, next) {
     try {
-      await postsService.destroy(req.body)
+      await postsService.destroy(req.params.id)
       res.send({ message: 'Successfully Deleted' })
     } catch (error) {
       next(error)
