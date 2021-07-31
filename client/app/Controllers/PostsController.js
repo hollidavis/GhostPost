@@ -13,7 +13,7 @@ function _draw() {
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _draw)
-    ProxyState.on('account', this.getAll)
+    ProxyState.on('profile', this.getAll)
   }
 
   async getAll() {
@@ -35,9 +35,15 @@ export class PostsController {
         rating: form.rating.value,
         img: form.img.value
       }
-      await postsService.create(rawPost)
+      await postsService.createPost(rawPost)
+      // eslint-disable-next-line no-undef
+      $('#newPostModal').modal('toggle')
+      // eslint-disable-next-line no-undef
+      $('body').removeClass('modal-open')
+      // eslint-disable-next-line no-undef
+      $('.modal-backdrop').remove()
     } catch (error) {
-      logger.error('could not create post from Controller')
+      logger.error(error)
     }
   }
 
@@ -46,7 +52,7 @@ export class PostsController {
       logger.log('hello from upVote in PostsController')
       await postsService.upVote(postId)
     } catch (error) {
-      logger.error('invalid id')
+      logger.error(error)
     }
   }
 
@@ -59,7 +65,7 @@ export class PostsController {
     try {
       await postsService.deletePost(postId)
     } catch (error) {
-      logger.error('not deleting from controller')
+      logger.error(error)
     }
   }
 
@@ -67,7 +73,7 @@ export class PostsController {
     try {
       await postsService.editPost(event, id)
     } catch (error) {
-      logger.error('invalid id')
+      logger.error(error)
     }
   }
 }

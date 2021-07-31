@@ -6,14 +6,15 @@ export class Post {
     this.location = data.location
     this.rating = data.rating
     this.img = data.img
-    this.upVote = data.upVote || 0
-    this.downVote = data.downVote || 0
-    this.edited = data.edited || false
+    this.upVote = '0' || data.upVote
+    this.downVote = '0' || data.downVote
+    this.edited = false || data.edited
     this.creatorId = data.creatorId
   }
 
   get Template() {
     return /* HTML */`
+    <div class="row my-3 mx-2 bg-light shadow-card">
             <div class="col-12">
                 <div class="row pb-2">
                     <div id="vote-count"
@@ -30,7 +31,7 @@ export class Post {
                         </div>
                         <div class="row">
                             <div class="col-4 mx-0">
-                                <img src="${this.img}" alt="${this.location}">
+                                <img class = "post-img mb-2" src="${this.img}" alt="${this.location}">
                             </div>
                             <div class="col-8">
                                 <div class="row">
@@ -47,9 +48,6 @@ export class Post {
                             </div>
                         </div>
                         <div class="row ">
-                            <div class="col-12 d-flex align-items-start">
-                                <p>Posted By: ${this.creatorId.name}</p>
-                            </div>
                             <div class="col-12 d-flex justify-content-between">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#v">
@@ -64,12 +62,13 @@ export class Post {
                     </div>
                 </div>
             </div>
+        </div>
     `
   }
 
   get getRatings() {
     let template = ''
-    for (let i = 0; i <= this.rating; i++) {
+    for (let i = 0; i <= this.rating - 1; i++) {
       template += '<span class="mdi mdi-ghost mdi-36px text-primary"></span>'
     }
     return template
