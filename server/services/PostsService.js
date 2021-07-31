@@ -30,9 +30,10 @@ class PostsService {
     return post
   }
 
-  async destroy(body) {
-    await this.getOne(body.id, body.creatorId)
-    return await dbContext.Posts.findByIdAndDelete(body.id)
+  async destroy(id) {
+    // await this.getOne(body.id, body.creatorId)
+    // find a new way to verify
+    return await dbContext.Posts.findByIdAndDelete(id)
   }
 }
 
