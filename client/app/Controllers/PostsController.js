@@ -37,7 +37,7 @@ export class PostsController {
       }
       await postsService.createPost(rawPost)
       // eslint-disable-next-line no-undef
-      $('#newPostModal').modal('toggle')
+      $('#newPostsModal').modal('toggle')
       // eslint-disable-next-line no-undef
       $('body').removeClass('modal-open')
       // eslint-disable-next-line no-undef
@@ -49,21 +49,23 @@ export class PostsController {
 
   async upVote(postId) {
     try {
-      logger.log('hello from upVote in PostsController')
       await postsService.upVote(postId)
     } catch (error) {
       logger.error(error)
     }
   }
 
-  downVote(postId) {
-    logger.log('downVote from PostController')
-    postsService.downVote(postId)
+  async downVote(postId) {
+    try {
+      await postsService.downVote(postId)
+    } catch (error) {
+      logger.error(error)
+    }
   }
 
-  async deletePost(postId) {
+  async deletePost(id) {
     try {
-      await postsService.deletePost(postId)
+      await postsService.deletePost(id)
     } catch (error) {
       logger.error(error)
     }

@@ -38,10 +38,10 @@ class PostsService {
     }
   }
 
-  async deletePost(postId) {
-    const foundPost = ProxyState.posts.find(p => p.id === postId)
-    await api.delete(foundPost.id)
-    ProxyState.posts = ProxyState.posts.filter(p => p.id !== postId)
+  async deletePost(id) {
+    const foundPost = ProxyState.posts.find(p => p.id === id)
+    await api.delete('api/posts/' + foundPost.id)
+    ProxyState.posts = ProxyState.posts.filter(p => p.id !== id)
   }
 
   async editPost(postId, body) {

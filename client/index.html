@@ -67,13 +67,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form onsubmit="app.commentsController.newComment()">
+                        <form onsubmit="app.commentsController.newComment(event)">
                             <div class="d-flex">
                                 <input type="text" name="commentBody" id="commentBody" class="form-control"
                                     placeholder="New Comment...">
                                 <button type="submit" class="btn btn-primary ml-2">Submit</button>
                             </div>
                         </form>
+                        <div id = "comments">
+                            <!-- comments template will go -->
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -82,7 +85,7 @@
             </div>
         </div>
         <!-- New Post Modal -->
-        <div class="modal fade" id="newPostModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="newPostsModal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
