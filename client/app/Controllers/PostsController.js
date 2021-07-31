@@ -24,4 +24,9 @@ export class PostsController {
     logger.log('hello from upVote in PostsController')
     postsService.upVote(postId)
   }
+
+  downVote(postId) {
+    logger.log('downVote from PostController')
+    postsService.downVote(postId)
+  }
 }
