@@ -53,76 +53,8 @@
             </button>
         </div>
         <!-- Post Card -->
-        <div class="row my-3 mx-2 bg-light shadow-card">
-            <div class="col-12">
-                <div class="row pb-2">
-                    <!-- vote count col-1 -->
-                    <div id="vote-count"
-                        class="col-1 d-flex flex-column align-items-center justify-content-center line-right">
-                        <span class="mdi mdi-arrow-up-bold mdi-36px text-primary" id="upVote"></span>
-                        <span id="upVoteCount">0</span>
-                        <span id="downVoteCount">0</span>
-                        <span class="mdi mdi-arrow-down-bold mdi-36px text-danger" id="downVote"></span>
-                    </div>
-                    <!-- post col-11 -->
-                    <div class="col-11">
-                        <!-- Post Title -->
-                        <div class="row justify-content-between align-items-center bg-light-gray px-2 mb-2">
-                            <h2 class="my-1">Title</h2>
-                            <h4 id="delete-button" class="text-danger justify-text-end my-1"><b>X</b></h4>
-                        </div>
-                        <!-- image & description -->
-                        <div class="row">
-                            <div class="col-4 mx-0">
-                                <img src="//placehold.it//200x200" alt="">
-                            </div>
-                            <div class="col-8">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="d-flex align-items-center mdi mdi-map-marker mdi-24px mb-0">Location
-                                        </p>
-                                        <div id="rating">
-                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
-                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
-                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
-                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
-                                            <span class="mdi mdi-ghost mdi-36px text-primary"></span>
-                                        </div>
-                                        <div>
-                                            <span>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
-                                                    voluptatibus suscipit est dignissimos! Aspernatur, rerum voluptas
-                                                    omnis
-                                                    dignissimos quo totam. Lorem ipsum dolor sit, amet consectetur
-                                                    adipisicing
-                                                    elit. Odit cum a eveniet qui. Facilis explicabo vel, dolor enim
-                                                    laborum
-                                                    harum!</p>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- posted by & comments -->
-                        <div class="row ">
-                            <div class="col-12 d-flex align-items-start">
-                                <p>Posted By:</p>
-                            </div>
-                            <!-- edit & comment buttons -->
-                            <div class="col-12 d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary">
-                                    <span class="mdi mdi-lead-pencil mdi-10px" title="Edit Post"> Edit Post</span>
-                                </button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#commentsModal"><span class="mdi mdi-comment"></span>
-                                    Comments
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row my-3 mx-2 bg-light shadow-card" id="posts">
+            <!-- Post template goes here -->
         </div>
         <!-- Comments Modal -->
         <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog">
@@ -162,6 +94,50 @@
                     </div>
                     <div class="modal-body">
                         <form onsubmit="app.postsController.createPost(event)">
+                            <!-- Title -->
+                            <div class="form-group">
+                                <input type="text" name="title" id="title" class="form-control" placeholder="Title..."
+                                    required>
+                            </div>
+                            <!-- Location -->
+                            <div class="form-group">
+                                <input type="text" name="location" id="location" class="form-control"
+                                    placeholder="Location..." required>
+                            </div>
+                            <!-- Rating -->
+                            <div class="form-group">
+                                <input type="number" name="rating" id="rating" class="form-control"
+                                    placeholder="Rating..." required min="0" max="5">
+                            </div>
+                            <!-- Post Body -->
+                            <div class="form-group">
+                                <input type="text" name="postBody" id="postBody" class="form-control"
+                                    placeholder="Description..." required minlength="5" maxlength="500">
+                            </div>
+                            <!-- Img -->
+                            <div class="form-group">
+                                <input type="text" name="img" id="img" class="form-control" placeholder="Image URL..."
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit Post Modal -->
+        <div class="modal fade" id="editPostsModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Edit Ghost Post <span
+                                class="fa fa-ghost text-dark"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form onsubmit="app.postsController.editPost(event, id)">
                             <!-- Title -->
                             <div class="form-group">
                                 <input type="text" name="title" id="title" class="form-control" placeholder="Title..."

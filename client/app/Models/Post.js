@@ -14,7 +14,6 @@ export class Post {
 
   get Template() {
     return /* HTML */`
-     <div class="row my-3 mx-2 bg-light shadow-card">
             <div class="col-12">
                 <div class="row pb-2">
                     <div id="vote-count"
@@ -27,7 +26,7 @@ export class Post {
                     <div class="col-11">
                         <div class="row justify-content-between align-items-center bg-light-gray px-2 mb-2">
                             <h2 class="my-1">${this.title}</h2>
-                            <h4 id="delete-button" class="text-danger justify-text-end my-1"><b>X</b></h4>
+                            <h4 id="delete-button" class="text-danger justify-text-end my-1" onclick="app.postsController.deletePost(${this.id})"><b>X</b></h4>
                         </div>
                         <div class="row">
                             <div class="col-4 mx-0">
@@ -52,7 +51,8 @@ export class Post {
                                 <p>Posted By: ${this.creatorId.name}</p>
                             </div>
                             <div class="col-12 d-flex justify-content-between">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#v">
                                     <span class="mdi mdi-lead-pencil mdi-10px" title="Edit Post"> Edit Post</span>
                                 </button>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -64,7 +64,6 @@ export class Post {
                     </div>
                 </div>
             </div>
-        </div>
     `
   }
 
