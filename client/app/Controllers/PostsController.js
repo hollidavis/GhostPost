@@ -63,9 +63,9 @@ export class PostsController {
     }
   }
 
-  async editPost(postId, body) {
+  async editPost(event, id) {
     try {
-      await postsService.editPost
+      await postsService.editPost(event, id)
     } catch (error) {
       logger.error('invalid id')
     }
