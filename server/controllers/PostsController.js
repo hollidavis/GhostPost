@@ -18,7 +18,7 @@ export class PostsController extends BaseController {
 
   async getAll(req, res, next) {
     try {
-      const posts = await postsService.getAll({ creatorId: req.userInfo.id })
+      const posts = await postsService.getAll()
       res.send(posts)
     } catch (error) {
       next(error)
